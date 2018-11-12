@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATM
 {
-   public class Renedition
+   public class Renedition : IRenedition
     {
         public void render(List<Plane> planes)
         {

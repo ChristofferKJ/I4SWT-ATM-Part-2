@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ATM
 {
-    public class Airspace
+    public class Airspace : IAirspace
     {
-        public List<Plane> Planes { get; set; }
+        //public List<Plane> Planes { get; set; }
         public const int SouthWest_Y = 10000;
         public const int SouthWest_X = 10000;
         public const int NorthEast_Y = 90000;

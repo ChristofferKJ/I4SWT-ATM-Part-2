@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ATM
 {
-    public class CalculateVelocity
+    public class CalculateVelocity : ICalculateVelocity
     {
         public void CalcVelocity(Plane oldPlane, Plane newPlane)
         {

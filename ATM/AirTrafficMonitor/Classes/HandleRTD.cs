@@ -7,7 +7,7 @@ using TransponderReceiver;
 namespace ATM
 {
 
-    public class HandleRTD
+    public class HandleRTD : IHandleRTD
     {
 
         private readonly ITransponderReceiver Receiver;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ATM
 {
-    public class CheckPlanes
+    public class CheckPlanes : ICheckPlanes
     {
         public List<Plane> Planes { get; set; }
 
@@ -29,10 +29,10 @@ namespace ATM
             {
                 for (int k = 0; k < Planes.Count;k++)
                 {
-                    if(newplanes[k].Tag == Planes[k].Tag)
+                    if(newplanes[i].Tag == Planes[k].Tag)
                     {
-                        _cc.CalcCourse(Planes[k], newplanes[k]);
-                        _cv.CalcVelocity(Planes[k], newplanes[k]);                    
+                        _cc.CalcCourse(Planes[k], newplanes[i]);
+                        _cv.CalcVelocity(Planes[k], newplanes[i]);                    
                     }
                 }
             }

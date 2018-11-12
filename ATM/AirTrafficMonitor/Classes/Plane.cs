@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ATM
 {
-    public class Plane
+    public class Plane : IPlane
     {
         public string Tag { get; set; }
         public int XCoordinate { get; set; }

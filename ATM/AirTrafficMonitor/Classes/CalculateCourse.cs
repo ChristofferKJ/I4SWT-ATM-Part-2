@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ATM
 {
-    public class CalculateCourse
+    public class CalculateCourse : ICalculateCourse
     {
        
 
