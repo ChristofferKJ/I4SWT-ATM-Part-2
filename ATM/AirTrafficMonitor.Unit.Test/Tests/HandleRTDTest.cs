@@ -20,6 +20,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private CalculateCourse calculateCourse;
         private CalculateVelocity calculateVelocity;
         private Renedition renedition;
+        private int _nEventsRecieved;
 
         [SetUp]
         public void SetUp()
@@ -31,6 +32,9 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             checkPlanes = new CheckPlanes(calculateVelocity, calculateCourse, renedition);
             airspace = new Airspace(checkPlanes);
             uut = new HandleRTD(fakeTransponderReceiver, airspace);
+            _nEventsRecieved = 0;
+
+            
         }
 
         [Test]
@@ -65,22 +69,23 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         public void TestEvent() // Desværre ikke færdig :(
         {
             
-            List<string> testData = new List<string>();
-            testData.Add("ATR423;39045;12932;14000;20151006213456789");
 
-            Plane testPlane = new Plane()
-            {
-                Course = 0,
-                Altitude = 14000,
-                Tag = "ATR423",
-                XCoordinate = 39045,
-                YCoordinate = 12932,
-                Velocity = 0,
-                TimeStamp = DateTime.ParseExact("20151006123456789", "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture)
-            };
+            //List<string> testData = new List<string>();
+            //testData.Add("ATR423;39045;12932;14000;20151006213456789");
+
+            //Plane testPlane = new Plane()
+            //{
+            //    Course = 0,
+            //    Altitude = 14000,
+            //    Tag = "ATR423",
+            //    XCoordinate = 39045,
+            //    YCoordinate = 12932,
+            //    Velocity = 0,
+            //    TimeStamp = DateTime.ParseExact("20151006123456789", "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture)
+            //};
 
 
-            fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(this,new RawTransponderDataEventArgs(testData));
+            //fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(this,new RawTransponderDataEventArgs(testData));
             
             // Mangler assert et eller andet 
         }
