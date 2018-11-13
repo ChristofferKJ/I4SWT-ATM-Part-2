@@ -12,30 +12,30 @@ namespace AirTrafficMonitor.Unit.Test.Tests
 {
     class LogTest
     {
-        private ILog fakeLog;
-       
+        private ILog uut;
+        private StreamReader sr;
         [SetUp]
         public void Setup()
         {
-            fakeLog = Substitute.For<ILog>();
+            uut = new Log();
+            uut.ClearLog();
         }
 
 
-       /* [TestCase("1234","1234","kl.14")]
+        [TestCase("1234", "1234", "kl.14")]
         [TestCase("abc", "ss", "kl.15")]
         [TestCase("", "", "")]
-        public void TestWriteToLog(string planeTagA, string planeTagB, string timeOfOccurrencce) 
-        // Vi kom desværre ikke i mål med denne test. Den virkede lokalt, men der var problemer da det kørte på Jenkins.
+        public void TestWriteToLog(string planeTagA, string planeTagB, string timeOfOccurrencce)
+
         {
-            fakeLog.WriteToLog(planeTagA, planeTagB, timeOfOccurrencce);
-            using (StreamReader sr = new StreamReader("Log.txt"))
+            uut.WriteToLog(planeTagA, planeTagB, timeOfOccurrencce);
+            using (sr = new StreamReader("Log.txt"))
             {
                 string testLogLine = sr.ReadToEnd();
-                //Assert.IsNotEmpty(testLogLine);
+                Assert.IsNotEmpty(testLogLine);
             }
-            
+
         }
-        */
 
     }
 }
