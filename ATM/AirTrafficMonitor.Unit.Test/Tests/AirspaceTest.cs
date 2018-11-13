@@ -38,5 +38,19 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             Assert.That(fakePlanes.Count, Is.EqualTo(1));
         }
 
+
+        [Test]
+        public void Airspace_PlaneDeletedAltitudeTooLow()
+        {
+            fakePlane = new Plane();
+            fakePlane.XCoordinate = 20000;
+            fakePlane.YCoordinate = 50;
+            fakePlane.Altitude = 90;
+            fakePlanes.Add(fakePlane);
+            uut.CheckAirspace(fakePlanes);
+
+            Assert.That(fakePlanes.Count, Is.EqualTo(0));
+        }
+
     }
 }
