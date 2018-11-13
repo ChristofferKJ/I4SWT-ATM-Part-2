@@ -24,7 +24,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private DateTime time1;
         private DateTime time2;
 
-
+        //SLIK MIG 
         [SetUp]
         public void SetUp()
         {
