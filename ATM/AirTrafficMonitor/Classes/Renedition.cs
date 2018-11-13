@@ -8,9 +8,9 @@ namespace ATM
 {
    public class Renedition : IRenedition
     {
-        public void render(List<Plane> planes)
+        public void render(List<IPlane> planes)
         {
-            foreach (Plane plane in planes)
+            foreach (IPlane plane in planes)
             {
                 Console.WriteLine($"Plane tag: {plane.Tag}");
                 Console.WriteLine($"Position: ({plane.XCoordinate},{plane.YCoordinate})");

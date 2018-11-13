@@ -5,7 +5,7 @@ namespace ATM
 {
     public interface ICheckPlanes
     {
-        void CheckPlanesInAirspace(List<Plane> newplanes); 
+        void CheckPlanesInAirspace(List<IPlane> newplanes); 
 
     }
 }

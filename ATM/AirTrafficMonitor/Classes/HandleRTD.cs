@@ -30,7 +30,7 @@ namespace ATM
         public void OnDataReady(object sender, RawTransponderDataEventArgs e)
         {
             var datalist = e.TransponderData;
-            var planeList = new List<Plane>();
+            var planeList = new List<IPlane>();
             DetectSeparationEvent detectSeparationEvent = new DetectSeparationEvent();
 
             for(int i = 0; i<datalist.Count; i++)

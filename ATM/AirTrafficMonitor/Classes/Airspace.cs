@@ -25,7 +25,7 @@ namespace ATM
 
         }
 
-        public void CheckAirspace(List<Plane> airspace)
+        public void CheckAirspace(List<IPlane> airspace)
         {
             foreach (var plane in airspace.ToList())
             {

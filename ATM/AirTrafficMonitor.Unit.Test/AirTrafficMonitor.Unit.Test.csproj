@@ -76,6 +76,7 @@
     <Compile Include="Tests\CalculateVelocityTest .cs" />
     <Compile Include="Tests\CalculateCourseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\CheckPlanesTest.cs" />
     <Compile Include="Tests\DataReadyDecodeTest.cs" />
     <Compile Include="Tests\DataReadyEventTest.cs" />
     <Compile Include="Tests\DetectSeparationEventTest.cs" />

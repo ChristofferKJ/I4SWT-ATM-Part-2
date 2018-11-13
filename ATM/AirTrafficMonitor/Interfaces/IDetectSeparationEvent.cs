@@ -8,6 +8,6 @@ namespace ATM
 {
     interface IDetectSeparationEvent
     {
-        void CheckSepEvent(List<Plane> planes);
+        void CheckSepEvent(List<IPlane> planes);
     }
 }

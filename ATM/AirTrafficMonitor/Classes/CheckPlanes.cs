@@ -9,21 +9,21 @@ namespace ATM
 {
     public class CheckPlanes : ICheckPlanes
     {
-        public List<Plane> Planes { get; set; }
+        public List<IPlane> Planes { get; set; }
 
-        private CalculateVelocity _cv;
-        private CalculateCourse _cc;
-        private Renedition _rr; 
+        private ICalculateVelocity _cv;
+        private ICalculateCourse _cc;
+        private IRenedition _rr; 
 
-        public CheckPlanes(CalculateVelocity cv, CalculateCourse cc, Renedition rr)
+        public CheckPlanes(ICalculateVelocity cv, ICalculateCourse cc, IRenedition rr)
         {
             _cc = cc;
             _cv = cv;
             _rr = rr;
-            Planes = new List<Plane>();
+            Planes = new List<IPlane>();
         }
 
-        public void CheckPlanesInAirspace(List<Plane> newplanes)
+        public void CheckPlanesInAirspace(List<IPlane> newplanes)
         {
             for (int i = 0; i<newplanes.Count; i++)
             {

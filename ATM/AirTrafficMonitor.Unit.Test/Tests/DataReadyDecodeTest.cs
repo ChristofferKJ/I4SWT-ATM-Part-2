@@ -17,7 +17,6 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private HandleRTD uut;
         private IAirspace fakeAirspace;
         private Plane testPlane;
-
         private string testPlaneString;
         
         [SetUp]

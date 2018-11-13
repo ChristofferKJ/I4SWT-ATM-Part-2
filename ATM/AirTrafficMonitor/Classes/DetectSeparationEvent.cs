@@ -8,7 +8,7 @@ namespace ATM
 { 
     class DetectSeparationEvent : IDetectSeparationEvent
     {
-        public void CheckSepEvent(List<Plane> planes)
+        public void CheckSepEvent(List<IPlane> planes)
         {
           foreach (Plane plane1 in planes)
             {

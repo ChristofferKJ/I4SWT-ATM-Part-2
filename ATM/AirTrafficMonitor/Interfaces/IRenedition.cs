@@ -6,6 +6,6 @@ namespace ATM
     public interface IRenedition
     {
         void CurSepEvent(string planeA, string planeB, string TimeStamp);
-        void render(List<Plane> planes);
+        void render(List<IPlane> planes);
     }
 }
