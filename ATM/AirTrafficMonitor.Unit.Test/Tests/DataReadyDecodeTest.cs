@@ -11,37 +11,26 @@ using TransponderReceiver;
 
 namespace AirTrafficMonitor.Unit.Test.Tests
 {
-    class HandleRTDTest
+    class DataReadyDecodeTest
     {
         private ITransponderReceiver fakeTransponderReceiver;
         private HandleRTD uut;
-        private Airspace airspace;
-        private CheckPlanes checkPlanes;
-        private CalculateCourse calculateCourse;
-        private CalculateVelocity calculateVelocity;
-        private Renedition renedition;
-        private int _nEventsRecieved;
+        private IAirspace fakeAirspace;
 
+        private string testPlaneString = "ATR423;39045;12932;14000;20151006123456789";
+        
         [SetUp]
         public void SetUp()
         {
             fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
-            calculateCourse = new CalculateCourse();
-            calculateVelocity = new CalculateVelocity();
-            renedition = new Renedition();
-            checkPlanes = new CheckPlanes(calculateVelocity, calculateCourse, renedition);
-            airspace = new Airspace(checkPlanes);
-            uut = new HandleRTD(fakeTransponderReceiver, airspace);
-            _nEventsRecieved = 0;
-
-            
+            fakeAirspace = Substitute.For<IAirspace>();
+            uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace);
         }
 
         [Test]
         public void TestDecodeData()
         {
-            string testPlaneString = "ATR423;39045;12932;14000;20151006123456789";
-
+            
             Plane testPlane = new Plane()
             {
                 Course = 0,
@@ -68,3 +57,4 @@ namespace AirTrafficMonitor.Unit.Test.Tests
 
     }
 }
+

@@ -29,18 +29,14 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             fakeAirspace = Substitute.For<IAirspace>();
             uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace);
+            testData.Add("ATR423;39045;12932;14000;20151006123456789");
+            
             fakeTransponderReceiver.TransponderDataReady += (o, args) =>
             {
                 receivedData = args.TransponderData;
                 ++nEventsReceived;
             };
-            
-            testData.Add("ATR423;");
-            testData.Add("39045");
-            testData.Add("12932");
-            testData.Add("14000");
-            testData.Add("20151006123456789");
-        }
+    }
 
         [Test]
         public void EventIsRaised()
@@ -68,15 +64,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             Assert.That(receivedData.Count,Is.EqualTo(testData.Count));
         }
 
-        [Test]
-        public void EventRaisedDataAndReceivedCountDoesntCompare()
-        {
-            testData.Add("TestElement");
-            var args = new RawTransponderDataEventArgs(testData);
-            fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(args);
-            Assert.That(receivedData.Count, Is.Not.EqualTo(testData.Count));
-        }
-
+   
         [Test]
         public void EventRaisedDataAndReceivedElementsCompare()
         {
