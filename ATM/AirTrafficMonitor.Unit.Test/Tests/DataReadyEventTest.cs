@@ -18,14 +18,17 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private ITransponderReceiver fakeTransponderReceiver;
         private IAirspace fakeAirspace;
         private HandleRTD uut;
-        private List<string> testData = new List<string>();
-        private List<string> receivedData = new List<string>();
-
+        private List<string> testData;
+        private List<string> receivedData;
         private int nEventsReceived;
 
         [SetUp]
         public void SetUp()
         {
+            nEventsReceived = 0;
+            receivedData = new List<string>();
+            testData = new List<string>(); 
+
             fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             fakeAirspace = Substitute.For<IAirspace>();
             uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace);
@@ -79,7 +82,8 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             
         }
 
+
     }
 
-    
+
 }
