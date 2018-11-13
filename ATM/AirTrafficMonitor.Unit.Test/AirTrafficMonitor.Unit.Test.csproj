@@ -79,7 +79,6 @@
     <Compile Include="Tests\DataReadyDecodeTest.cs" />
     <Compile Include="Tests\DataReadyEventTest.cs" />
     <Compile Include="Tests\DetectSeparationEventTest.cs" />
-    <Compile Include="Tests\HandleRTDTest.cs" />
     <Compile Include="Tests\LogTest.cs" />
   </ItemGroup>
   <ItemGroup>

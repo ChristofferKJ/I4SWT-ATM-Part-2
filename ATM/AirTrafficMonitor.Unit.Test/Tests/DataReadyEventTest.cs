@@ -19,6 +19,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private IAirspace fakeAirspace;
         private HandleRTD uut;
         private List<string> testData;
+        private List<string> testData2;
         private List<string> receivedData;
         private int nEventsReceived;
 
@@ -27,13 +28,16 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         {
             nEventsReceived = 0;
             receivedData = new List<string>();
-            testData = new List<string>(); 
+            testData = new List<string>();
+            testData2 = new List<string>();
+
 
             fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             fakeAirspace = Substitute.For<IAirspace>();
             uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace);
             testData.Add("ATR423;39045;12932;14000;20151006123456789");
-            
+            testData2.Add("BTR523;40000;20000;10000;20181006123456789");
+
             fakeTransponderReceiver.TransponderDataReady += (o, args) =>
             {
                 receivedData = args.TransponderData;
@@ -59,15 +63,25 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             Assert.That(nEventsReceived,Is.EqualTo(2));
         }
 
+
         [Test]
         public void EventRaisedDataAndReceivedCountCompare()
         {
             var args = new RawTransponderDataEventArgs(testData);
             fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(args);
-            Assert.That(receivedData.Count,Is.EqualTo(testData.Count));
+            Assert.That(nEventsReceived,Is.EqualTo(testData.Count));
         }
 
-   
+        [Test]
+        public void EventRaisedDataAndReceivedCountDoesntCompare()
+        {
+            var args = new RawTransponderDataEventArgs(testData);
+            fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(args);
+            testData.Add("ATR423;39045;12932;14000;20151006123456789");
+            Assert.That(nEventsReceived, Is.Not.EqualTo(testData.Count));
+        }
+
+
         [Test]
         public void EventRaisedDataAndReceivedElementsCompare()
         {
@@ -81,6 +95,21 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             }
             
         }
+
+        [Test]
+        public void EventRaisedDataAndReceivedElementsDontCompare()
+        {
+            int count = 0;
+            var args = new RawTransponderDataEventArgs(testData);
+            fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(args);
+            foreach (string item in receivedData)
+            {
+                Assert.That(item, Is.Not.EqualTo(testData2[count]));
+                count++;
+            }
+
+        }
+
 
 
     }
