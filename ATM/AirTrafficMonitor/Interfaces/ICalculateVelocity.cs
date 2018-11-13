@@ -2,6 +2,6 @@
 {
     public interface ICalculateVelocity
     {
-        void CalcVelocity(Plane oldPlane, Plane newPlane); 
+        void CalcVelocity(IPlane oldPlane, IPlane newPlane); 
     }
 }

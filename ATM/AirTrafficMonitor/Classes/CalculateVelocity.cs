@@ -9,7 +9,7 @@ namespace ATM
 {
     public class CalculateVelocity : ICalculateVelocity
     {
-        public void CalcVelocity(Plane oldPlane, Plane newPlane)
+        public void CalcVelocity(IPlane oldPlane, IPlane newPlane)
         {
             double XYDiff = Math.Sqrt((Math.Pow((newPlane.XCoordinate - oldPlane.XCoordinate),2) + Math.Pow((newPlane.YCoordinate - oldPlane.YCoordinate),2)));
             double AltitudeDiff = Math.Abs(oldPlane.Altitude - newPlane.Altitude);

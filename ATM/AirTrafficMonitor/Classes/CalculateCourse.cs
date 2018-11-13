@@ -11,7 +11,7 @@ namespace ATM
     {
        
 
-        public void CalcCourse(Plane oldPlane, Plane newPlane)
+        public void CalcCourse(IPlane oldPlane, IPlane newPlane)
         {
             double dx = oldPlane.XCoordinate - newPlane.XCoordinate;
             double dy = oldPlane.YCoordinate - newPlane.YCoordinate;
