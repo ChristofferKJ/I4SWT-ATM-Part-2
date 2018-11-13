@@ -17,9 +17,9 @@ namespace ATM
         public const int MaxHeight = 20000;
         public const int MinHeight = 500;
 
-        private readonly CheckPlanes _cp; 
+        private readonly ICheckPlanes _cp; 
 
-        public Airspace(CheckPlanes cp)
+        public Airspace(ICheckPlanes cp)
         {
             _cp = cp;
 

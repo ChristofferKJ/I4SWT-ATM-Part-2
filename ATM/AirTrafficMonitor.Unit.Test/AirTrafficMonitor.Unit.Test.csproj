@@ -72,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\AirspaceTest.cs" />
     <Compile Include="Tests\CalculateVelocityTest .cs" />
     <Compile Include="Tests\CalculateCourseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
