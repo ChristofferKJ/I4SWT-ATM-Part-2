@@ -31,9 +31,7 @@ namespace ATM
             {
                 if (plane.XCoordinate < SouthWest_X || plane.YCoordinate < SouthWest_Y || plane.YCoordinate > NorthEast_Y || plane.XCoordinate >NorthEast_X || plane.Altitude < MinHeight || plane.Altitude > MaxHeight)
                 {
-                    //DetectTrackLeftAirspaceEvent detectTrackLeftAirspaceEvent = new DetectTrackLeftAirspaceEvent();
-                    //detectTrackLeftAirspaceEvent.CheckLeaveEvent(airspace);
-
+            
                     airspace.Remove(plane);
                 }
             }
