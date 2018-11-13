@@ -18,3 +18,13 @@ C:\Users\tobia\Desktop\I4SWT\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\AT
 C:\Users\tobia\Desktop\I4SWT\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\AirTrafficMonitor.dll
 C:\Users\tobia\Desktop\I4SWT\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\AirTrafficMonitor.pdb
 C:\Users\tobia\Desktop\I4SWT\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\ATM Library.csprojAssemblyReference.cache
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\bin\Debug\AirTrafficMonitor.dll
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\bin\Debug\AirTrafficMonitor.pdb
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\bin\Debug\nunit.framework.dll
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\bin\Debug\TransponderReceiver.dll
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\bin\Debug\nunit.framework.xml
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\ATM Library.csprojAssemblyReference.cache
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\ATM Library.csproj.CoreCompileInputs.cache
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\ATM Library.csproj.CopyComplete
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\AirTrafficMonitor.dll
+C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor\obj\Debug\AirTrafficMonitor.pdb

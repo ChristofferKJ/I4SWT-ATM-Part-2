@@ -20,6 +20,24 @@ namespace ATM
 
         }
 
+        public void WriteEnteredPlaneToLog(string PlaneTagA, string TimeOfOccurrencce)
+        {
+            using (StreamWriter sw = File.AppendText("Log.txt"))
+            {
+                sw.WriteLine(
+                    $"The plane {PlaneTagA} has entered the airspace, at {TimeOfOccurrencce}");
+            }
+        }
+
+        public void WriteLeavingPlaneToLog(string PlaneTagA, string TimeOfOccurrencce)
+        {
+            using (StreamWriter sw = File.AppendText("Log.txt"))
+            {
+                sw.WriteLine(
+                    $"The plane {PlaneTagA} has left the airspace, at {TimeOfOccurrencce}");
+            }
+        }
+
         public void ClearLog()
         {
             using (StreamWriter sw = new StreamWriter("Log.txt"))
