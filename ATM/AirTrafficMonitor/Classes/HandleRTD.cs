@@ -11,15 +11,20 @@ namespace ATM
     {
 
         private readonly ITransponderReceiver Receiver;
-        private readonly IAirspace _CheckPlanes; // Changed to IAirspace 
+        private readonly Airspace _CheckPlanes; // Changed to IAirspace 
         private DetectSeparationEvent _detectSeparationEvent;
 
-        public HandleRTD(ITransponderReceiver receiver, IAirspace CheckPlanes) // Changed to IAirspace 
+        public HandleRTD(ITransponderReceiver receiver, Airspace CheckPlanes) // Changed to IAirspace 
         {
             Receiver = receiver;
             Receiver.TransponderDataReady += OnDataReady;
-            _CheckPlanes = CheckPlanes;
+           _CheckPlanes = CheckPlanes;
 
+        }
+
+        public void OnDataReadyHelper(RawTransponderDataEventArgs e)
+        {
+            
         }
 
         public void OnDataReady(object sender, RawTransponderDataEventArgs e)
