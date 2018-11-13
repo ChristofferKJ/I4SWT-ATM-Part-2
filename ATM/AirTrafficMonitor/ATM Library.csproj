@@ -54,6 +54,8 @@
     <Compile Include="Classes\CheckPlanes.cs" />
     <Compile Include="Classes\Airspace.cs" />
     <Compile Include="Classes\CalculateCourse.cs" />
+    <Compile Include="Classes\DetectEnterEvent.cs" />
+    <Compile Include="Classes\DetectLeaveEvent.cs" />
     <Compile Include="Classes\DetectSeparationEvent.cs" />
     <Compile Include="Classes\HandleRTD.cs" />
     <Compile Include="Interfaces\IAirspace.cs" />

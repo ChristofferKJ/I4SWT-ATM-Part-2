@@ -16,8 +16,9 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private ITransponderReceiver fakeTransponderReceiver;
         private HandleRTD uut;
         private IAirspace fakeAirspace;
+        private Plane testPlane;
 
-        private string testPlaneString = "ATR423;39045;12932;14000;20151006123456789";
+        private string testPlaneString;
         
         [SetUp]
         public void SetUp()
@@ -25,13 +26,8 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             fakeAirspace = Substitute.For<IAirspace>();
             uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace);
-        }
-
-        [Test]
-        public void TestDecodeData()
-        {
-            
-            Plane testPlane = new Plane()
+            testPlaneString = "ATR423;39045;12932;14000;20151006123456789";
+            testPlane = new Plane()
             {
                 Course = 0,
                 Altitude = 14000,
@@ -41,17 +37,59 @@ namespace AirTrafficMonitor.Unit.Test.Tests
                 Velocity = 0,
                 TimeStamp = DateTime.ParseExact("20151006123456789", "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture)
             };
+        }
+
+        [Test]
+        public void TestDecodeDataTag()
+        {
+            Plane testStringPlane = uut.Decode(testPlaneString);
+            Assert.AreEqual(testStringPlane.Tag, testPlane.Tag);
+        }
+
+        [Test]
+        public void TestDecodeDataTimeStamp()
+        {
+            Plane testStringPlane = uut.Decode(testPlaneString);
+            Assert.AreEqual(testStringPlane.Course, testPlane.Course);
+        }
+
+        [Test]
+        public void TestDecodeDataCourse()
+        {
+            Plane testStringPlane = uut.Decode(testPlaneString);
+            Assert.AreEqual(testStringPlane.Course, testPlane.Course);
+        }
+
+        [Test]
+        public void TestDecodeDataAltitude()
+        {
 
             Plane testStringPlane = uut.Decode(testPlaneString);
-
-            Assert.AreEqual(testStringPlane.Tag, testPlane.Tag);
-            Assert.AreEqual(testStringPlane.TimeStamp, testPlane.TimeStamp);
-            Assert.AreEqual(testStringPlane.Course, testPlane.Course);
             Assert.AreEqual(testStringPlane.Altitude, testPlane.Altitude);
-            Assert.AreEqual(testStringPlane.YCoordinate, testPlane.YCoordinate);
+        }
+
+        [Test]
+        public void TestDecodeDataXCoordinate()
+        {
+            Plane testStringPlane = uut.Decode(testPlaneString);
             Assert.AreEqual(testStringPlane.XCoordinate, testPlane.XCoordinate);
+        }
+
+        [Test]
+        public void TestDecodeDataYCoordinate()
+        {
+            Plane testStringPlane = uut.Decode(testPlaneString);
+            Assert.AreEqual(testStringPlane.YCoordinate, testPlane.YCoordinate);
+        }
+
+        [Test]
+        public void TestDecodeDataVelcocity()
+        {
+            Plane testStringPlane = uut.Decode(testPlaneString);
             Assert.AreEqual(testStringPlane.Velocity, testPlane.Velocity);
         }
+
+
 
 
 
