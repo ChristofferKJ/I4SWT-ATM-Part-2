@@ -81,6 +81,7 @@
     <Compile Include="Tests\DataReadyEventTest.cs" />
     <Compile Include="Tests\DetectSeparationEventTest.cs" />
     <Compile Include="Tests\LogTest.cs" />
+    <Compile Include="Tests\ReneditionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
