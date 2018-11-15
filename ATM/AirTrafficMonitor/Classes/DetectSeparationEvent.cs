@@ -44,6 +44,10 @@ namespace ATM
     }
     public class SeperationsEventArgs : EventArgs
     {
+        private IPlane fakePlane1;
+        private IPlane fakePlane2;
+        private List<string> testData2;
+
         public SeperationsEventArgs(IPlane _plane1, IPlane _plane2, string _timestamp)
         {
             Message = new Msg();
@@ -51,6 +55,14 @@ namespace ATM
             Message.plane2 = _plane2;
             Message.timestamp = _timestamp;
         }
+
+        public SeperationsEventArgs(IPlane fakePlane1, IPlane fakePlane2, List<string> testData2)
+        {
+            this.fakePlane1 = fakePlane1;
+            this.fakePlane2 = fakePlane2;
+            this.testData2 = testData2;
+        }
+
         public class Msg
         {
             public IPlane plane1;

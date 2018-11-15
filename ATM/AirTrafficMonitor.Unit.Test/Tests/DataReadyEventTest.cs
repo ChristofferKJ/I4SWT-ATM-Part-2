@@ -94,8 +94,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             {
                 Assert.That(item, Is.EqualTo(testData[count]));
                 count++;
-            }
-            
+            } 
         }
 
         [Test]
