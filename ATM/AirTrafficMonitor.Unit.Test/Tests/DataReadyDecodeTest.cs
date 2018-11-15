@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ATM;
 using NSubstitute;
 using NUnit.Framework;
-using TransponderReceiver;
+using TransponderReceiver; 
 
 namespace AirTrafficMonitor.Unit.Test.Tests
 {
@@ -18,7 +18,6 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private IDetectSeparationEvent fakeDetectSeparationEvent;
         private IAirspace fakeAirspace;
         private Plane testPlane;
-
         private string testPlaneString;
         
         [SetUp]

@@ -8,6 +8,7 @@ namespace ATM
 {
    public class Renedition : IRenedition
     {
+<<<<<<< HEAD
         public Renedition(DetectSeparationEvent detect)
         {
             Detect = detect;
@@ -16,8 +17,11 @@ namespace ATM
         DetectSeparationEvent Detect;
         
         public void render(List<Plane> planes)
+=======
+        public void render(List<IPlane> planes)
+>>>>>>> 2ac673d03d01a670cfd97841419bfd1015d9fdda
         {
-            foreach (Plane plane in planes)
+            foreach (IPlane plane in planes)
             {
                 Console.WriteLine($"Plane tag: {plane.Tag}");
                 Console.WriteLine($"Position: ({plane.XCoordinate},{plane.YCoordinate})");

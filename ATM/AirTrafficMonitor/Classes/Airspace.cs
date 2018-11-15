@@ -17,15 +17,15 @@ namespace ATM
         public const int MaxHeight = 20000;
         public const int MinHeight = 500;
 
-        private readonly CheckPlanes _cp; 
+        private readonly ICheckPlanes _cp; 
 
-        public Airspace(CheckPlanes cp)
+        public Airspace(ICheckPlanes cp)
         {
             _cp = cp;
 
         }
 
-        public void CheckAirspace(List<Plane> airspace)
+        public void CheckAirspace(List<IPlane> airspace)
         {
             foreach (var plane in airspace.ToList())
             {

@@ -10,12 +10,16 @@ namespace ATM
     class DetectSeparationEvent : IDetectSeparationEvent
     public class DetectSeparationEvent : IDetectSeparationEvent
     {
+<<<<<<< HEAD
         public event EventHandler<SeperationsEventArgs> RaisedSerparationEvent;
         protected virtual void OnRaisedSerparationEvent(SeperationsEventArgs e)
         {
             RaisedSerparationEvent?.Invoke(this, e);
         }
         public void CheckSepEvent(List<Plane> planes)
+=======
+        public void CheckSepEvent(List<IPlane> planes)
+>>>>>>> 2ac673d03d01a670cfd97841419bfd1015d9fdda
         {
           foreach (Plane plane1 in planes)
             {

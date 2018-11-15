@@ -25,15 +25,15 @@ namespace ATM
 
         }
 
-        public void OnDataReadyHelper(RawTransponderDataEventArgs e)
-        {
+        //public void OnDataReadyHelper(RawTransponderDataEventArgs e)
+        //{
             
-        }
+        //}
 
         public void OnDataReady(object sender, RawTransponderDataEventArgs e)
         {
             var datalist = e.TransponderData;
-            var planeList = new List<Plane>();
+            var planeList = new List<IPlane>();
             DetectSeparationEvent detectSeparationEvent = new DetectSeparationEvent();
             //DetectSeparationEvent detectSeparationEvent = new DetectSeparationEvent();
 

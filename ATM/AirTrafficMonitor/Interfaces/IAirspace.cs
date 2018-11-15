@@ -5,6 +5,6 @@ namespace ATM
 {
     public interface IAirspace
     {
-        void CheckAirspace(List<Plane> airspace); 
+        void CheckAirspace(List<IPlane> airspace); 
     }
 }
