@@ -17,15 +17,15 @@ namespace ATM
         public void CheckSepEvent(List<IPlane> planes)
 
         {
-          foreach (Plane plane1 in planes)
+          foreach (IPlane plane1 in planes)
             {
-                foreach (Plane plane2 in planes)
+                foreach (IPlane plane2 in planes)
                 {
                     if (plane1 == plane2)
                     {
                         continue;
                     }
-                    if (Math.Abs(plane1.XCoordinate - plane2.XCoordinate) < 5000 &&
+                    if (1==1 || Math.Abs(plane1.XCoordinate - plane2.XCoordinate) < 5000 &&
                         Math.Abs(plane1.YCoordinate - plane2.YCoordinate) < 5000 &&
                         Math.Abs(plane1.Altitude - plane2.Altitude) < 300) 
                     {
@@ -35,7 +35,7 @@ namespace ATM
                 }
             }
         }
-        public void PassSepEvent(Plane plane1, Plane plane2, string timestamp)
+        public void PassSepEvent(IPlane plane1, IPlane plane2, string timestamp)
         {
             Log log = new Log();
             log.WriteToLog(plane1.Tag, plane2.Tag, timestamp);
@@ -44,7 +44,7 @@ namespace ATM
     }
     public class SeperationsEventArgs : EventArgs
     {
-        public SeperationsEventArgs(Plane _plane1, Plane _plane2, string _timestamp)
+        public SeperationsEventArgs(IPlane _plane1, IPlane _plane2, string _timestamp)
         {
             Message = new Msg();
             Message.plane1 = _plane1;
@@ -53,8 +53,8 @@ namespace ATM
         }
         public class Msg
         {
-            public Plane plane1;
-            public Plane plane2;
+            public IPlane plane1;
+            public IPlane plane2;
             public string timestamp;
         }
         public Msg Message

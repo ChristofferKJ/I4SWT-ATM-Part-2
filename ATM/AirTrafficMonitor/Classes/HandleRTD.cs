@@ -33,7 +33,7 @@ namespace ATM
         {
             var datalist = e.TransponderData;
             var planeList = new List<IPlane>();
-            DetectSeparationEvent detectSeparationEvent = new DetectSeparationEvent();
+            //DetectSeparationEvent detectSeparationEvent = new DetectSeparationEvent();
             
             for(int i = 0; i<datalist.Count; i++)
             {
