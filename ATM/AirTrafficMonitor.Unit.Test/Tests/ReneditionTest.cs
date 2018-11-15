@@ -19,11 +19,13 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private IPlane testPlane;
         private IPlane testPlane2;
         private List<IPlane> listOPlanes;
+        private IDetectSeparationEvent fakeDetectSeparationEvent;
 
         [SetUp]
         public void SetUp()
         {
-            uut = new Renedition();
+            fakeDetectSeparationEvent = Substitute.For<IDetectSeparationEvent>();
+            uut = new Renedition(fakeDetectSeparationEvent);
             testPlane = Substitute.For<IPlane>();
             testPlane2 = Substitute.For<IPlane>();
             testPlane = new Plane()

@@ -36,8 +36,6 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             fakeDetectSeparationEvent = Substitute.For<IDetectSeparationEvent>();
             fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             fakeAirspace = Substitute.For<IAirspace>();
-            uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace);
-
             uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace, fakeDetectSeparationEvent);
             testData.Add("ATR423;39045;12932;14000;20151006123456789");
             testData2.Add("BTR523;40000;20000;10000;20181006123456789");

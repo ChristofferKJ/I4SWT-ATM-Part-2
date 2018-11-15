@@ -12,6 +12,7 @@ namespace ATM
     {
         static void Main()
         {
+            Execute.RunATM();
         }
     }
 }

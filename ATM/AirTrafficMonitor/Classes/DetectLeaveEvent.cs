@@ -25,8 +25,6 @@ namespace ATM
             //Log log = new Log();
             //log.WriteLeavingPlaneToLog(plane1.Tag, timestamp);
 
-            Renedition renedition = new Renedition();
-            renedition.CurLeavingEvent(plane1.Tag, timestamp);
             //Renedition renedition = new Renedition();
             //renedition.CurLeavingEvent(plane1.Tag, timestamp);
         }

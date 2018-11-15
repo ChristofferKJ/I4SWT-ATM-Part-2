@@ -14,22 +14,18 @@ namespace ATM
 
             if (SameItem == false && plane.XCoordinate > 10000 || plane.YCoordinate > 10000 || plane.YCoordinate < 90000 || plane.XCoordinate < 90000 || plane.Altitude > 5000 || plane.Altitude < 20000)
             {
-                PassEnterEvent(plane, Convert.ToString(plane.TimeStamp));
+                //PassEnterEvent(plane, Convert.ToString(plane.TimeStamp));
             }
         }
     }
-        void PassEnterEvent(Plane plane1, string timestamp)
-        {
-            Log log = new Log();
-            log.WriteEnteredPlaneToLog(plane1.Tag, timestamp);
+        //void PassEnterEvent(Plane plane1, string timestamp)
+        //{
         //    Log log = new Log();
         //    log.WriteEnteredPlaneToLog(plane1.Tag, timestamp);
 
-            Renedition renedition = new Renedition();
-            renedition.CurEnterEvent(plane1.Tag, timestamp);
-        //    Renedition renedition = new Renedition();
-        //    renedition.CurEnterEvent(plane1.Tag, timestamp);
-        }
+
+
+        //}
 
     }
-}
+
