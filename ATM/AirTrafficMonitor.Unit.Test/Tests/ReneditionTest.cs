@@ -6,6 +6,9 @@ using NUnit.Framework;
 using TransponderReceiver;
 using System.Globalization;
 using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Assert = NUnit.Framework.Assert;
+
 
 namespace AirTrafficMonitor.Unit.Test.Tests
 {
@@ -47,23 +50,64 @@ namespace AirTrafficMonitor.Unit.Test.Tests
 
             listOPlanes = new List<IPlane>();
             listOPlanes.Add(testPlane);
-            listOPlanes.Add(testPlane2);
+            
 
         }
 
+        [TestInitialize]
+        public void InitializeTest()
+        {
+            StreamWriter standardOut = new StreamWriter(Console.OpenStandardOutput());
+            standardOut.AutoFlush = true;
+            Console.SetOut(standardOut);
+        }
+
         [Test]
-        public void TestRenderWithListOfPlanes()
+        public void TestRenderWithOneTestPlanes()
         {
             using (StringWriter sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                uut.render(listOPlanes);
-                //string expected = string.Format($"Plane tag: {testplane.Tag}")
-                
+                uut.render(listOPlanes); // List has one plane
+
+                string expected = string.Format($"Plane tag: {testPlane.Tag}{Environment.NewLine}");
+                expected += string.Format($"Position: ({testPlane.XCoordinate},{testPlane.YCoordinate}){Environment.NewLine}");
+                expected += string.Format($"Altitude: {testPlane.Altitude}m{Environment.NewLine}");
+                expected += string.Format($"Speed: {testPlane.Velocity}m/s{Environment.NewLine}");
+                expected += string.Format($"Course: {testPlane.Course} degrees{Environment.NewLine}");
+                expected += string.Format($"Time: {testPlane.TimeStamp} \n{Environment.NewLine}");
+                Assert.AreEqual(expected,sw.ToString());
+
             }
                 
-            
-           
         }
+
+        [Test]
+        public void TestRenderWithListOfTestPlanes()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                listOPlanes.Add(testPlane2);
+                uut.render(listOPlanes); // Adding plane to list. Now contains two planes :-) 
+                string expected = "";
+
+                foreach (var testPlane in listOPlanes)
+                {
+                    expected += string.Format($"Plane tag: {testPlane.Tag}{Environment.NewLine}");
+                    expected += string.Format($"Position: ({testPlane.XCoordinate},{testPlane.YCoordinate}){Environment.NewLine}");
+                    expected += string.Format($"Altitude: {testPlane.Altitude}m{Environment.NewLine}");
+                    expected += string.Format($"Speed: {testPlane.Velocity}m/s{Environment.NewLine}");
+                    expected += string.Format($"Course: {testPlane.Course} degrees{Environment.NewLine}");
+                    expected += string.Format($"Time: {testPlane.TimeStamp} \n{Environment.NewLine}");
+                }
+              
+                Assert.AreEqual(expected, sw.ToString());
+
+            }
+
+        }
+
+
     }
 }
