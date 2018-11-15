@@ -25,7 +25,7 @@ namespace ATM
                     {
                         continue;
                     }
-                    if (1==1 || Math.Abs(plane1.XCoordinate - plane2.XCoordinate) < 5000 &&
+                    if (Math.Abs(plane1.XCoordinate - plane2.XCoordinate) < 5000 &&
                         Math.Abs(plane1.YCoordinate - plane2.YCoordinate) < 5000 &&
                         Math.Abs(plane1.Altitude - plane2.Altitude) < 300) 
                     {
@@ -54,13 +54,6 @@ namespace ATM
             Message.plane1 = _plane1;
             Message.plane2 = _plane2;
             Message.timestamp = _timestamp;
-        }
-
-        public SeperationsEventArgs(IPlane fakePlane1, IPlane fakePlane2, List<string> testData2)
-        {
-            this.fakePlane1 = fakePlane1;
-            this.fakePlane2 = fakePlane2;
-            this.testData2 = testData2;
         }
 
         public class Msg
