@@ -22,9 +22,13 @@ namespace ATM
         {
             Log log = new Log();
             log.WriteEnteredPlaneToLog(plane1.Tag, timestamp);
+        //    Log log = new Log();
+        //    log.WriteEnteredPlaneToLog(plane1.Tag, timestamp);
 
             Renedition renedition = new Renedition();
             renedition.CurEnterEvent(plane1.Tag, timestamp);
+        //    Renedition renedition = new Renedition();
+        //    renedition.CurEnterEvent(plane1.Tag, timestamp);
         }
 
     }

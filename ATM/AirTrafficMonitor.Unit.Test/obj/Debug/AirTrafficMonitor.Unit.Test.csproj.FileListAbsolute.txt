@@ -45,3 +45,7 @@ C:\Users\chris\OneDrive\Desktop\4. Semester\I4SWT\I4SWT-ATM-Part-2\ATM\AirTraffi
 C:\Users\chris\OneDrive\Desktop\4. Semester\I4SWT\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor.Unit.Test\obj\Debug\AirTrafficMonitor.Unit.Test.csproj.CopyComplete
 C:\Users\chris\OneDrive\Desktop\4. Semester\I4SWT\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor.Unit.Test\obj\Debug\AirTrafficMonitor.Unit.Test.dll
 C:\Users\chris\OneDrive\Desktop\4. Semester\I4SWT\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor.Unit.Test\obj\Debug\AirTrafficMonitor.Unit.Test.pdb
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor.Unit.Test\obj\Debug\AirTrafficMonitor.Unit.Test.csprojAssemblyReference.cache
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor.Unit.Test\obj\Debug\AirTrafficMonitor.Unit.Test.csproj.CoreCompileInputs.cache
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor.Unit.Test\obj\Debug\AirTrafficMonitor.Unit.Test.dll
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\AirTrafficMonitor.Unit.Test\obj\Debug\AirTrafficMonitor.Unit.Test.pdb

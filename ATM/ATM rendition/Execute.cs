@@ -12,14 +12,19 @@ namespace ATM
     {
         public static void RunATM()
         {
+            DetectSeparationEvent detect = new DetectSeparationEvent();
+            Renedition renedition = new Renedition(detect);
             var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
             CalculateVelocity cv = new CalculateVelocity();
             CalculateCourse cc = new CalculateCourse();
             Renedition rr = new Renedition();
             CheckPlanes As = new CheckPlanes(cv, cc, rr);
+           
+            CheckPlanes As = new CheckPlanes(cv, cc, renedition);
             Airspace SAs = new Airspace(As);
 
             var system = new HandleRTD(receiver, SAs);
+            var system = new HandleRTD(receiver, SAs, detect);
             while (true)
                 Thread.Sleep(5000);
         }

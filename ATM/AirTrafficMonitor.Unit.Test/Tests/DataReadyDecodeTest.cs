@@ -15,6 +15,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
     {
         private ITransponderReceiver fakeTransponderReceiver;
         private HandleRTD uut;
+        private IDetectSeparationEvent fakeDetectSeparationEvent;
         private IAirspace fakeAirspace;
         private Plane testPlane;
 
@@ -26,6 +27,8 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             fakeAirspace = Substitute.For<IAirspace>();
             uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace);
+            fakeDetectSeparationEvent = Substitute.For<IDetectSeparationEvent>();
+            uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace, fakeDetectSeparationEvent);
             testPlaneString = "ATR423;39045;12932;14000;20151006123456789";
             testPlane = new Plane()
             {

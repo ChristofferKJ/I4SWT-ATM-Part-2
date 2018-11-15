@@ -37,3 +37,16 @@ C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\A
 C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\ATM rendition\obj\Debug\ATM Application.csproj.CopyComplete
 C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\ATM rendition\obj\Debug\ATM rendition.exe
 C:\Users\Hindkaer\Desktop\IKT\4Semester\I4SWT\Handins\Handin3\I4SWT-ATM-Part-2\ATM\ATM rendition\obj\Debug\ATM rendition.pdb
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\bin\Debug\ATM rendition.exe.config
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\bin\Debug\ATM rendition.exe
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\bin\Debug\ATM rendition.pdb
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\bin\Debug\AirTrafficMonitor.dll
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\bin\Debug\nunit.framework.dll
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\bin\Debug\TransponderReceiver.dll
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\bin\Debug\AirTrafficMonitor.pdb
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\bin\Debug\nunit.framework.xml
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\obj\Debug\ATM Application.csprojAssemblyReference.cache
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\obj\Debug\ATM Application.csproj.CoreCompileInputs.cache
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\obj\Debug\ATM Application.csproj.CopyComplete
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\obj\Debug\ATM rendition.exe
+C:\Users\Marius\Documents\4. semester\GtiHub\SWT ATM part 2\I4SWT-ATM-Part-2\ATM\ATM rendition\obj\Debug\ATM rendition.pdb

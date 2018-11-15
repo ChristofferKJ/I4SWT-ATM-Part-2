@@ -18,6 +18,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private ITransponderReceiver fakeTransponderReceiver;
         private IAirspace fakeAirspace;
         private HandleRTD uut;
+        private IDetectSeparationEvent fakeDetectSeparationEvent;
         private List<string> testData;
         private List<string> testData2;
         private List<string> receivedData;
@@ -32,9 +33,12 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             testData2 = new List<string>();
 
 
+            fakeDetectSeparationEvent = Substitute.For<IDetectSeparationEvent>();
             fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             fakeAirspace = Substitute.For<IAirspace>();
             uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace);
+
+            uut = new HandleRTD(fakeTransponderReceiver, fakeAirspace, fakeDetectSeparationEvent);
             testData.Add("ATR423;39045;12932;14000;20151006123456789");
             testData2.Add("BTR523;40000;20000;10000;20181006123456789");
 

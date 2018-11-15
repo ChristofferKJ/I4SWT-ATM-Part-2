@@ -8,6 +8,13 @@ namespace ATM
 {
    public class Renedition : IRenedition
     {
+        public Renedition(DetectSeparationEvent detect)
+        {
+            Detect = detect;
+            Detect.RaisedSerparationEvent += HandleSeparationEvent;
+        }
+        DetectSeparationEvent Detect;
+        
         public void render(List<Plane> planes)
         {
             foreach (Plane plane in planes)
@@ -24,8 +31,11 @@ namespace ATM
                 
         }
         public void CurSepEvent(string planeA,string planeB, string TimeStamp)
+        
+        public void HandleSeparationEvent(object sender, SeperationsEventArgs e)
         {
             Console.WriteLine($"The two planes {planeA} and {planeB} had a separation event at {TimeStamp}");
+            Console.WriteLine($"The two planes {e.Message.plane1.Tag} and {e.Message.plane2.Tag} had a separation event at {e.Message.timestamp}");
         }
 
         public void CurEnterEvent(string planeA, string TimeStamp)
