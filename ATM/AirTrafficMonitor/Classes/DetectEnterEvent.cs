@@ -8,16 +8,16 @@ namespace ATM
 {
     class DetectEnterEvent
     {
-        public void CheckEnterEvent(List<Plane> airspace)
+        public void CheckEnterEvent(List<Plane> airspace, Plane plane)
         {
-            foreach (Plane plane in airspace)
+            bool SameItem = airspace.Any(item => item.Tag == plane.Tag);
+
+            if (SameItem == false && plane.XCoordinate > 10000 || plane.YCoordinate > 10000 || plane.YCoordinate < 90000 || plane.XCoordinate < 90000 || plane.Altitude > 5000 || plane.Altitude < 20000)
             {
-                if (plane.XCoordinate > 10000 || plane.YCoordinate > 10000 || plane.YCoordinate < 90000 || plane.XCoordinate < 90000 || plane.Altitude > 5000 || plane.Altitude < 20000)
-                {
-                    PassEnterEvent(plane, Convert.ToString(plane.TimeStamp));
-                }
+                PassEnterEvent(plane, Convert.ToString(plane.TimeStamp));
             }
         }
+    }
         void PassEnterEvent(Plane plane1, string timestamp)
         {
             Log log = new Log();
