@@ -12,7 +12,7 @@ namespace ATM
     public class CheckPlanes : ICheckPlanes
     {
         public event EventHandler<EnterEventArgs> RaisedEnterEvent;
-        public List<string> ListOfTags;
+        public static List<string> ListOfTags;
 
         protected virtual void OnRaisedEnterEvent(EnterEventArgs e)
         {

@@ -14,7 +14,6 @@ namespace ATM
         {
             RaisedLeaveEvent?.Invoke(this, e);
         }
-        //public List<Plane> Planes { get; set; }
         public const int SouthWest_Y = 10000;
         public const int SouthWest_X = 10000;
         public const int NorthEast_Y = 90000;
@@ -34,12 +33,17 @@ namespace ATM
         {
             foreach (var plane in airspace.ToList())
             {
+
                 if (plane.XCoordinate < SouthWest_X || plane.YCoordinate < SouthWest_Y || plane.YCoordinate > NorthEast_Y || plane.XCoordinate >NorthEast_X || plane.Altitude < MinHeight || plane.Altitude > MaxHeight)
                 {
+                    if (CheckPlanes.ListOfTags.Contains(plane.Tag))
+                    {
+                        OnRaisedLeaveEvent(new LeaveEventArgs(plane, plane.TimeStamp.ToString()));
+                        CheckPlanes.ListOfTags.Remove(plane.Tag);
+                    }
                     airspace.Remove(plane);
                 }
             }
-
             _cp.CheckPlanesInAirspace(airspace);
         }
 
