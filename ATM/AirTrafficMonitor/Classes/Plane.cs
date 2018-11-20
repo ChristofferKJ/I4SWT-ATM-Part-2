@@ -16,5 +16,6 @@ namespace ATM
         public DateTime TimeStamp { get; set; }
         public double Velocity { get; set; }
         public double Course { get; set; }
+        public bool IsInAirspace { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         public void SetUp()
         {
             fakeDetectSeparationEvent = Substitute.For<IDetectSeparationEvent>();
-            uut = new Renedition(fakeDetectSeparationEvent);
+           // uut = new Renedition(fakeDetectSeparationEvent);
             testPlane = Substitute.For<IPlane>();
             testPlane2 = Substitute.For<IPlane>();
             testPlane = new Plane()

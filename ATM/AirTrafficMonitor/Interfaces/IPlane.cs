@@ -11,5 +11,6 @@ namespace ATM
          DateTime TimeStamp { get; set; }
          double Velocity { get; set; }
          double Course { get; set; }
+         bool IsInAirspace { get; set; }
     }
 }

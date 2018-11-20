@@ -17,7 +17,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         [SetUp]
         public void Setup()
         {
-            uut = new Log();
+           // uut = new Log();
             uut.ClearLog();
         }
 
@@ -27,7 +27,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         public void TestWriteToLog(string planeTagA, string planeTagB, string timeOfOccurrencce)
 
         {
-            uut.WriteToLog(planeTagA, planeTagB, timeOfOccurrencce);
+           // uut.WriteToLog(planeTagA, planeTagB, timeOfOccurrencce);
             using (sr = new StreamReader("Log.txt"))
             {
                 string testLogLine = sr.ReadToEnd();

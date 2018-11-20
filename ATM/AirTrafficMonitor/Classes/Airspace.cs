@@ -36,7 +36,6 @@ namespace ATM
             {
                 if (plane.XCoordinate < SouthWest_X || plane.YCoordinate < SouthWest_Y || plane.YCoordinate > NorthEast_Y || plane.XCoordinate >NorthEast_X || plane.Altitude < MinHeight || plane.Altitude > MaxHeight)
                 {
-                    OnRaisedLeaveEvent(new LeaveEventArgs(plane, plane.TimeStamp.ToString()));
                     airspace.Remove(plane);
                 }
             }
