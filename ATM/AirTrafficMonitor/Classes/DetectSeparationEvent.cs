@@ -29,25 +29,15 @@ namespace ATM
                         Math.Abs(plane1.YCoordinate - plane2.YCoordinate) < 5000 &&
                         Math.Abs(plane1.Altitude - plane2.Altitude) < 300) 
                     {
-                        PassSepEvent(plane1, plane2, Convert.ToString(plane1.TimeStamp));
                         OnRaisedSerparationEvent(new SeperationsEventArgs(plane1,plane2, Convert.ToString(plane1.TimeStamp)));
                     }
                 }
             }
         }
-        public void PassSepEvent(IPlane plane1, IPlane plane2, string timestamp)
-        {
-            Log log = new Log();
-            log.WriteToLog(plane1.Tag, plane2.Tag, timestamp);
-        }
 
     }
     public class SeperationsEventArgs : EventArgs
     {
-        private IPlane fakePlane1;
-        private IPlane fakePlane2;
-        private List<string> testData2;
-
         public SeperationsEventArgs(IPlane _plane1, IPlane _plane2, string _timestamp)
         {
             Message = new Msg();

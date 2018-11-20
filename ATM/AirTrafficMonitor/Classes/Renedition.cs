@@ -8,13 +8,21 @@ namespace ATM
 {
    public class Renedition : IRenedition
     {
-        public Renedition(IDetectSeparationEvent detect)
+        public Renedition()
+        { }
+        public Renedition(IDetectSeparationEvent detectSep, ICheckPlanes detectEnter, IAirspace detectLeave)
         {
-            Detect = detect;
-            Detect.RaisedSerparationEvent += HandleSeparationEvent;
+            DetectSep = detectSep;
+            DetectSep.RaisedSerparationEvent += HandleSeparationEvent;
+            DetectEnter = detectEnter;
+            DetectEnter.RaisedEnterEvent += HandelEnterEvent;
+            DetectLeave = detectLeave;
+            DetectLeave.RaisedLeaveEvent += HandleLeaveEvent;
         }
-        IDetectSeparationEvent Detect;
-        
+        IDetectSeparationEvent DetectSep;
+        ICheckPlanes DetectEnter;
+        IAirspace DetectLeave;
+
         public void render(List<IPlane> planes)
 
         {
@@ -37,14 +45,14 @@ namespace ATM
             Console.WriteLine($"The two planes {e.Message.plane1.Tag} and {e.Message.plane2.Tag} had a separation event at {e.Message.timestamp}");
         }
 
-        public void CurEnterEvent(string planeA, string TimeStamp)
+        public void HandelEnterEvent(object sender, EnterEventArgs e)
         {
-            Console.WriteLine($"The plane {planeA} has entered the airspace, at {TimeStamp}");
+            Console.WriteLine($"The plane {e.Message.plane1.Tag} has entered the airspace, at {e.Message.timestamp}");
         }
 
-        public void CurLeavingEvent(string planeA, string TimeStamp)
+        public void HandleLeaveEvent(object sender, LeaveEventArgs e) 
         {
-            Console.WriteLine($"The plane {planeA} has left the airspace, at {TimeStamp}");
+            Console.WriteLine($"The plane {e.Message.plane1.Tag} has left the airspace, at {e.Message.plane1.TimeStamp}");
         }
 
     }

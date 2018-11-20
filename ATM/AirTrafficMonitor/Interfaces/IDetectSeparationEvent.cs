@@ -10,8 +10,6 @@ namespace ATM
     {
         event EventHandler<SeperationsEventArgs> RaisedSerparationEvent;
         void CheckSepEvent(List<IPlane> planes);
-      
-        void PassSepEvent(IPlane plane1, IPlane plane2, string timestamp);
-
+     
     }
 }

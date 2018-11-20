@@ -9,6 +9,11 @@ namespace ATM
 {
     public class CheckPlanes : ICheckPlanes
     {
+        public event EventHandler<EnterEventArgs> RaisedEnterEvent;
+        protected virtual void OnRaisedEnterEvent(EnterEventArgs e)
+        {
+            RaisedEnterEvent?.Invoke(this, e);
+        }
         public List<IPlane> Planes { get; set; }
 
         private ICalculateVelocity _cv;
@@ -25,24 +30,47 @@ namespace ATM
 
         public void CheckPlanesInAirspace(List<IPlane> newplanes)
         {
-            for (int i = 0; i<newplanes.Count; i++)
+            foreach (var newplane in newplanes)
             {
-                for (int k = 0; k < Planes.Count;k++)
+                if (!Planes.Contains(newplane))
                 {
-                    if(newplanes[i].Tag == Planes[k].Tag)
+                    OnRaisedEnterEvent(new EnterEventArgs(newplane, newplane.TimeStamp.ToString()));
+                }
+                
+                foreach (var plane in Planes)
+                {
+                    if (newplane == plane)
                     {
-                        _cc.CalcCourse(Planes[k], newplanes[i]);
-                        _cv.CalcVelocity(Planes[k], newplanes[i]);                    
+                        _cc.CalcCourse(plane, newplane);
+                        _cv.CalcVelocity(plane, newplane);
+                        continue;
                     }
                 }
+                
             }
-
+            
             Planes = newplanes;
             _rr.render(Planes);
         }
-
-       
+    }
+    public class EnterEventArgs : EventArgs
+    {
+        public EnterEventArgs(IPlane _plane1, string _timestamp)
+        {
+            Message = new Msg();
+            Message.plane1 = _plane1;
+            Message.timestamp = _timestamp;
         }
 
- }
+        public class Msg
+        {
+            public IPlane plane1;
+            public IPlane plane2;
+            public string timestamp;
+        }
+        public Msg Message
+        { get; set; }
+    }
+
+}
 

@@ -43,6 +43,7 @@ namespace ATM
 
             _CheckPlanes.CheckAirspace(planeList);
             detectSeparationEvent.CheckSepEvent(planeList);
+            
         }
 
         public Plane Decode(string data)

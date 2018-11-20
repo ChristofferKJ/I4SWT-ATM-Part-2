@@ -58,6 +58,8 @@
     <Compile Include="Classes\DetectLeaveEvent.cs" />
     <Compile Include="Classes\DetectSeparationEvent.cs" />
     <Compile Include="Classes\HandleRTD.cs" />
+    <Compile Include="Interfaces\IDetectLeaveEvent.cs" />
+    <Compile Include="Interfaces\IDetectEnterEvent.cs" />
     <Compile Include="Interfaces\IAirspace.cs" />
     <Compile Include="Interfaces\ICalculateCourse.cs" />
     <Compile Include="Interfaces\ICalculateVelocity.cs" />

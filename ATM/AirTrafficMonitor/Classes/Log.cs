@@ -9,13 +9,18 @@ namespace ATM
 {
     public class Log : ILog
     {
-
-        public void WriteToLog(String PlaneTagA, String PlaneTagB, string TimeOfOccurrencce)
+        public Log(DetectSeparationEvent detect)
+        {
+            IDetectSeparationEvent Detect;
+            Detect = detect;
+            Detect.RaisedSerparationEvent += HandleSeparationEvent;
+        }
+        public void HandleSeparationEvent(object sender, SeperationsEventArgs e)
         {
             using (StreamWriter sw = File.AppendText("Log.txt"))
             {
                 sw.WriteLine(
-                    $"The two planes {PlaneTagA} and {PlaneTagB} had a separation event at {TimeOfOccurrencce}");
+                    $"The two planes {e.Message.plane1.Tag} and {e.Message.plane2.Tag} had a separation event at {e.Message.plane1.TimeStamp}");
             }
 
         }
