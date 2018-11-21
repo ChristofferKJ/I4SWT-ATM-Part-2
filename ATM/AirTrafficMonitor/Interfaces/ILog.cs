@@ -8,8 +8,9 @@ namespace ATM
 {
     public interface ILog
     {
-         void WriteEnteredPlaneToLog(string PlaneTagA, string TimeOfOccurrencce);
-         void WriteLeavingPlaneToLog(string PlaneTagA, string TimeOfOccurrencce);
+        void WriteSeperationToLog(object sender, SeperationsEventArgs e);
+        void WriteEnteredPlaneToLog(object sender, EnterEventArgs e);
+        void WriteLeavingPlaneToLog(object sender, LeaveEventArgs e);
          void ClearLog();
     }
 }

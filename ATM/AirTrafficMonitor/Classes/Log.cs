@@ -9,37 +9,45 @@ namespace ATM
 {
     public class Log : ILog
     {
-        public Log(DetectSeparationEvent detect)
+        public Log(DetectSeparationEvent detectSepEvent, Airspace detectLeaveEvent, CheckPlanes detectEnterEvent)
         {
-            IDetectSeparationEvent Detect;
-            Detect = detect;
-            Detect.RaisedSerparationEvent += HandleSeparationEvent;
+            IDetectSeparationEvent DetectSepEvent;
+            DetectSepEvent = detectSepEvent;
+            DetectSepEvent.RaisedSerparationEvent += WriteSeperationToLog;
+
+            IAirspace DetectLeaveEvent;
+            DetectLeaveEvent = detectLeaveEvent;
+            DetectLeaveEvent.RaisedLeaveEvent += WriteLeavingPlaneToLog;
+
+            CheckPlanes DetectEnterEvent;
+            DetectEnterEvent = detectEnterEvent;
+            DetectEnterEvent.RaisedEnterEvent += WriteEnteredPlaneToLog;
         }
-        public void HandleSeparationEvent(object sender, SeperationsEventArgs e)
+
+        public void WriteSeperationToLog(object sender, SeperationsEventArgs e)
         {
             using (StreamWriter sw = File.AppendText("Log.txt"))
             {
                 sw.WriteLine(
                     $"The two planes {e.Message.plane1.Tag} and {e.Message.plane2.Tag} had a separation event at {e.Message.plane1.TimeStamp}");
             }
-
         }
 
-        public void WriteEnteredPlaneToLog(string PlaneTagA, string TimeOfOccurrencce)
+        public void WriteEnteredPlaneToLog(object sender, EnterEventArgs e)
         {
             using (StreamWriter sw = File.AppendText("Log.txt"))
             {
                 sw.WriteLine(
-                    $"The plane {PlaneTagA} has entered the airspace, at {TimeOfOccurrencce}");
+                    $"The plane {e.Message.plane1.Tag} has entered the airspace, at {e.Message.plane1.TimeStamp}");
             }
         }
 
-        public void WriteLeavingPlaneToLog(string PlaneTagA, string TimeOfOccurrencce)
+        public void WriteLeavingPlaneToLog(object sender, LeaveEventArgs e)
         {
             using (StreamWriter sw = File.AppendText("Log.txt"))
             {
                 sw.WriteLine(
-                    $"The plane {PlaneTagA} has left the airspace, at {TimeOfOccurrencce}");
+                    $"The plane {e.Message.plane1.Tag} has left the airspace, at {e.Message.plane1.TimeStamp}");
             }
         }
 
