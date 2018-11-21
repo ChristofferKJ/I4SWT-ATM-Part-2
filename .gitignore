@@ -4,3 +4,12 @@ _ReSharper.*
 bin
 obj
 packages
+ATM/.vs/ATM/v15/Server/sqlite3/db.lock
+ATM/.vs/ATM/v15/Server/sqlite3/storage.ide
+ATM/.vs/ATM/v15/Server/sqlite3/storage.ide-shm
+ATM/.vs/ATM/v15/Server/sqlite3/storage.ide-wal
+ATM/AirTrafficMonitor/vpproject/ATM Library.vpp~2
+ATM/AirTrafficMonitor/vpproject/ATM Library.vpp.bak_000f
+ATM/AirTrafficMonitor/vpproject/ATM Library.vpp
+ATM/AirTrafficMonitor/vpproject/ATM Library.vpp
+*.vpp
