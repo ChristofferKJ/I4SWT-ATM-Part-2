@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,15 +24,24 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private IPlane fakePlane2;
         private DateTime time1;
         private DateTime time2;
+        private IEnterEvent fakeEnterEvent;
+        private EnterEventArgs.Msg receivedData; 
+        private int nEventsReceived;
+        private IEnterEvent fakeIEnterEvent;
+        private List<string> fakeListOfTags; 
 
-        //SLIK MIG 
         [SetUp]
         public void SetUp()
         {
+            receivedData = new EnterEventArgs.Msg();
+            
+
+            nEventsReceived = 0; 
             newfakePlanes = new List<IPlane>();
             currentfakePlanes = new List<IPlane>();
             time1 = new DateTime(2010, 10, 10, 00, 01, 00);
             time2 = new DateTime(2010, 10, 10, 00, 02, 00);
+
 
             fakePlane1 = new Plane();
             fakePlane1.Tag = "ABC123";
@@ -40,35 +50,64 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             fakePlane1.Altitude = 17100;
             fakePlane1.TimeStamp = time1;
 
-            fakePlane2 = new Plane();
-            fakePlane2.Tag = "ABC123";
-            fakePlane2.XCoordinate = 2000;
-            fakePlane2.YCoordinate = 2000;
-            fakePlane2.Altitude = 18100;
-            fakePlane2.TimeStamp = time2;
+            
+
 
             currentfakePlanes.Add(fakePlane1);
             fakeCalculateCourse = Substitute.For<ICalculateCourse>();
             fakeCalculateVelocity = Substitute.For<ICalculateVelocity>();
             fakeRenedition = Substitute.For<IRenedition>();
+            fakeIEnterEvent = Substitute.For<IEnterEvent>();
             uut = new CheckPlanes(fakeCalculateVelocity, fakeCalculateCourse, fakeRenedition);
-        }
 
+            fakeListOfTags = CheckPlanes.ListOfTags;
+
+
+            fakeIEnterEvent.RaisedEnterEvent += (o, args) =>
+            {
+                receivedData = args.Message;
+                ++nEventsReceived;
+            };
+
+      
+        }
 
         [Test]
-        public void CheckPlanes_TwoPlanesSameTag_CalcVelocityIsCalled()
+        public void EventIsRaised()
         {
-            uut.CheckPlanesInAirspace(currentfakePlanes);
-            newfakePlanes.Add(fakePlane2);
-            uut.CheckPlanesInAirspace(newfakePlanes);
-            fakeCalculateVelocity.Received().CalcVelocity(currentfakePlanes[0], newfakePlanes[0]);
+            var args = new EnterEventArgs(fakePlane1, time1.ToString());
+            fakeIEnterEvent.RaisedEnterEvent += Raise.EventWith(args);
+            Assert.That(nEventsReceived, Is.EqualTo(1));
         }
+
+        [Test]
+        public void CompareElementIsEqualOfRaisedEventArgsTest()
+        {
+            var args = new EnterEventArgs(fakePlane1, time1.ToString());
+            fakeIEnterEvent.RaisedEnterEvent += Raise.EventWith(args);
+            Assert.That(receivedData.plane1.Tag, Is.EqualTo(args.Message.plane1.Tag));
+            
+        }
+
+         [Test]
+        public void CompareElementIsNotEqualOfRaisedEventArgsTest()
+        {
+            var args = new EnterEventArgs(fakePlane1, time1.ToString());
+            fakeIEnterEvent.RaisedEnterEvent += Raise.EventWith(args);
+            Assert.That(fakePlane2, Is.Not.EqualTo(args.Message.plane1.Tag));
+            
+        }
+
+        [Test]
+        public void CheckPlanes_PlaneSameTag()
+        {
+            List<IPlane> testList = new List<IPlane>();
+            testList.Add(fakePlane1);
+            uut.CheckPlanesInAirspace(testList);
+            Assert.That(fakeListOfTags[0], Is.EqualTo(fakePlane1.Tag));
+        }
+
 
 
     }
-
-
-
-
-
 }

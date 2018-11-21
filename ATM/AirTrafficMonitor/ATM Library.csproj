@@ -61,7 +61,9 @@
     <Compile Include="Interfaces\ICalculateVelocity.cs" />
     <Compile Include="Interfaces\ICheckPlanes.cs" />
     <Compile Include="Interfaces\IDetectSeparationEvent.cs" />
+    <Compile Include="Interfaces\IEnterEvent.cs" />
     <Compile Include="Interfaces\IHandleRTD.cs" />
+    <Compile Include="Interfaces\ILeaveEvent.cs" />
     <Compile Include="Interfaces\ILog.cs" />
     <Compile Include="Interfaces\IPlane.cs" />
     <Compile Include="Interfaces\IRenedition.cs" />

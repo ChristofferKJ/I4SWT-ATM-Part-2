@@ -14,7 +14,7 @@ namespace ATM
         public event EventHandler<EnterEventArgs> RaisedEnterEvent;
         public static List<string> ListOfTags;
 
-        protected virtual void OnRaisedEnterEvent(EnterEventArgs e)
+        public virtual void OnRaisedEnterEvent(EnterEventArgs e)
         {
             RaisedEnterEvent?.Invoke(this, e);
         }
@@ -25,11 +25,13 @@ namespace ATM
         private ICalculateCourse _cc;
         private IRenedition _rr;
 
+
         public CheckPlanes(ICalculateVelocity cv, ICalculateCourse cc, IRenedition rr)
         {
             _cc = cc;
             _cv = cv;
             _rr = rr;
+
             Planes = new List<IPlane>();
             ListOfTags = new List<string>();
         }
@@ -70,31 +72,15 @@ namespace ATM
             _rr.render(Planes);
         }
 
-        public bool ContainsTagHelper(Plane oldPlane, Plane newPlane)
-        {
-            return oldPlane.Tag == newPlane.Tag;
-        }
+
+
+
+
 
     }
 
 
-    public class EnterEventArgs : EventArgs
-    {
-        public EnterEventArgs(IPlane _plane1, string _timestamp)
-        {
-            Message = new Msg();
-            Message.plane1 = _plane1;
-            Message.timestamp = _timestamp;
-        }
-
-        public class Msg
-        {
-            public IPlane plane1;
-            public string timestamp;
-        }
-        public Msg Message
-        { get; set; }
-    }
+    
 
     
 
