@@ -90,7 +90,6 @@ namespace ATM
         public class Msg
         {
             public IPlane plane1;
-            public IPlane plane2;
             public string timestamp;
         }
         public Msg Message

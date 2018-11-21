@@ -14,14 +14,14 @@ namespace ATM
         {
             Renedition ren = new Renedition();
             DetectSeparationEvent detect = new DetectSeparationEvent();            
-            Log log = new Log(detect);
+            
             var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
             CalculateVelocity cv = new CalculateVelocity();
             CalculateCourse cc = new CalculateCourse();
             CheckPlanes As = new CheckPlanes(cv, cc, ren);
             Airspace SAs = new Airspace(As);
             Renedition renedition = new Renedition(detect, As, SAs);
-
+            Log log = new Log(detect, SAs, As);
 
             var system = new HandleRTD(receiver, SAs, detect);
             while (true)

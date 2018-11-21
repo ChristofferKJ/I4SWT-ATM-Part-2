@@ -14,10 +14,17 @@ namespace AirTrafficMonitor.Unit.Test.Tests
     {
         private ILog uut;
         private StreamReader sr;
+        private IDetectSeparationEvent fakeDetectSeparationEvent;
+        private IAirspace fakeAirspace;
+        private ICheckPlanes fakeCheckPlanes;
         [SetUp]
         public void Setup()
         {
-            uut = new Log(null);
+            fakeDetectSeparationEvent = Substitute.For<IDetectSeparationEvent>();
+            fakeAirspace = Substitute.For<IAirspace>();
+            fakeCheckPlanes = Substitute.For<ICheckPlanes>();
+
+            uut = new Log(fakeDetectSeparationEvent, fakeAirspace, fakeCheckPlanes);
             uut.ClearLog();
         }
 
@@ -40,7 +47,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         [TestCase("ss", "kl.15")]
         public void TestWriteLeavingPlaneToLog(string planeTagA, string TimeOfOccurrencce)
         {
-            uut.WriteLeavingPlaneToLog(planeTagA, TimeOfOccurrencce);
+            uut.WriteLeavingToLog(planeTagA, TimeOfOccurrencce);
             using (sr = new StreamReader("Log.txt"))
             {
                 string testLogLine = sr.ReadToEnd();
@@ -53,7 +60,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         [TestCase("ss", "kl.15")]
         public void TestWriteEnteredPlaneToLog(string planeTagA, string TimeOfOccurrencce)
         {
-            uut.WriteEnteredPlaneToLog(planeTagA, TimeOfOccurrencce);
+            uut.WriteEnteredToLog(planeTagA, TimeOfOccurrencce);
             using (sr = new StreamReader("Log.txt"))
             {
                 string testLogLine = sr.ReadToEnd();
