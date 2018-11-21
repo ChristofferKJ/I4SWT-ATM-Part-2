@@ -9,7 +9,7 @@ namespace ATM
 {
     public class Log : ILog
     {
-        public Log(DetectSeparationEvent detect)
+        public Log(IDetectSeparationEvent detect)
         {
             IDetectSeparationEvent Detect;
             Detect = detect;
@@ -17,12 +17,7 @@ namespace ATM
         }
         public void HandleSeparationEvent(object sender, SeperationsEventArgs e)
         {
-            using (StreamWriter sw = File.AppendText("Log.txt"))
-            {
-                sw.WriteLine(
-                    $"The two planes {e.Message.plane1.Tag} and {e.Message.plane2.Tag} had a separation event at {e.Message.plane1.TimeStamp}");
-            }
-
+            WriteToLog(e.Message.plane1.Tag, e.Message.plane2.Tag, e.Message.timestamp.ToString());
         }
 
         public void WriteEnteredPlaneToLog(string PlaneTagA, string TimeOfOccurrencce)
@@ -40,6 +35,14 @@ namespace ATM
             {
                 sw.WriteLine(
                     $"The plane {PlaneTagA} has left the airspace, at {TimeOfOccurrencce}");
+            }
+        }
+        public void WriteToLog(string planeTagA, string planeTagB, string timeOfOccurrencce)
+        {
+            using (StreamWriter sw = File.AppendText("Log.txt"))
+            {
+                sw.WriteLine(
+                    $"The two planes {planeTagA} and {planeTagB} had a separation event at {timeOfOccurrencce}");
             }
         }
 

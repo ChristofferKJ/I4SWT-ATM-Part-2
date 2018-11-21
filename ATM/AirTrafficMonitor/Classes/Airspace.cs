@@ -56,6 +56,7 @@ namespace ATM
             Message = new Msg();
             Message.plane1 = _plane1;
             Message.timestamp = _timestamp;
+
         }
 
         public class Msg
