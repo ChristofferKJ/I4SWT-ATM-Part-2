@@ -24,11 +24,6 @@ namespace ATM
 
         }
 
-        //public void OnDataReadyHelper(RawTransponderDataEventArgs e)
-        //{
-            
-        //}
-
         public void OnDataReady(object sender, RawTransponderDataEventArgs e)
         {
             var datalist = e.TransponderData;
