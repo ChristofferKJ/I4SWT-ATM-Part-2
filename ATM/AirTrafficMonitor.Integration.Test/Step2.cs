@@ -10,7 +10,7 @@ using NSubstitute;
 namespace AirTrafficMonitor.Integration.Test
 {
     [TestFixture]
-    public class Step1
+    public class Step2
     {
         private CalculateCourse calccourse;
         private CalculateVelocity calcvelocity;
@@ -47,6 +47,7 @@ namespace AirTrafficMonitor.Integration.Test
             sut.CheckPlanesInAirspace(fakeplanelist);
 
             fakerenedition.Received().render(fakeplanelist);
+        
         }
     }
 }
