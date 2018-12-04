@@ -150,6 +150,36 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             Assert.AreEqual(receivedData2.plane1, args.Message.plane1);
         }
 
+        [Test]
+        public void TestHandleLeaveEventPrint()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                string expected = "";
+                var args = new LeaveEventArgs(testPlane, "20181006123456789");
+                uut.HandleLeaveEvent(fakeAirspace, args);
+                fakeAirspace.RaisedLeaveEvent += Raise.EventWith(args);
+                expected += string.Format($"The plane {args.Message.plane1.Tag} has left the airspace, at {args.Message.plane1.TimeStamp}{Environment.NewLine}");
+                Assert.AreEqual(sw.ToString(), expected);
+            }
+        }
+
+        [Test]
+        public void TestHandleEnterEventPrint()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                string expected = "";
+                var args = new EnterEventArgs(testPlane, "20181006123456789");
+                uut.HandelEnterEvent(fakeCheckPlanes, args);
+                fakeCheckPlanes.RaisedEnterEvent += Raise.EventWith(args);
+                expected += string.Format($"The plane {args.Message.plane1.Tag} has entered the airspace, at {args.Message.timestamp}{ Environment.NewLine}");
+                Assert.AreEqual(sw.ToString(), expected);
+            }
+        }
+
 
 
     }
