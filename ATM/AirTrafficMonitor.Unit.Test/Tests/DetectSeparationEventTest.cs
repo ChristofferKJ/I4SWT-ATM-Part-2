@@ -22,6 +22,7 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private SeperationsEventArgs.Msg receivedData;
         private int nEventsReceived;
 
+
         [SetUp]
         public void SetUp()
         {
@@ -88,6 +89,27 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             Assert.That(nEventsReceived, Is.Not.EqualTo(1));
         }
 
+        [Test]
+        public void CheckSepEventTestWithPlanesNotClose()
+        {
+            List<IPlane> listOfPlanes = new List<IPlane>();
+            fakePlane1.Altitude = 500;
+            fakePlane2.Altitude = 5000;
+            fakePlane1.XCoordinate = 10000;
+            fakePlane1.YCoordinate = 10000;
+            fakePlane1.XCoordinate = 90000;
+            fakePlane1.YCoordinate = 90000;
+            listOfPlanes.Add(fakePlane1);
+            listOfPlanes.Add(fakePlane2);
 
+            uut.CheckSepEvent(listOfPlanes);
+
+            Assert.That(nEventsReceived, Is.Not.EqualTo(1) );
+        }
+
+
+
+    
+        
     }
 }
