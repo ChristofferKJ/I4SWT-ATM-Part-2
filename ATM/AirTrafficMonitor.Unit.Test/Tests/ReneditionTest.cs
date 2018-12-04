@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using ATM;
 using NSubstitute;
 using NUnit.Framework;
 using TransponderReceiver;
 using System.Globalization;
 using System.IO;
+using System.Security.AccessControl;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Assert = NUnit.Framework.Assert;
 
@@ -20,6 +22,11 @@ namespace AirTrafficMonitor.Unit.Test.Tests
         private IPlane testPlane2;
         private List<IPlane> listOPlanes;
         private IDetectSeparationEvent fakeDetectSeparationEvent;
+        private ICheckPlanes fakeCheckPlanes;
+        private IAirspace fakeAirspace;
+        private EnterEventArgs.Msg receivedData;
+        private LeaveEventArgs.Msg receivedData2;
+        private int nEventsReceived;
 
         [SetUp]
         public void SetUp()
@@ -28,6 +35,10 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             uut = new Renedition();
             testPlane = Substitute.For<IPlane>();
             testPlane2 = Substitute.For<IPlane>();
+            fakeCheckPlanes = Substitute.For<ICheckPlanes>();
+            fakeAirspace = Substitute.For<IAirspace>();
+            nEventsReceived = 0;
+            receivedData = new EnterEventArgs.Msg();
             testPlane = new Plane()
             {
                 Course = 0,
@@ -52,7 +63,18 @@ namespace AirTrafficMonitor.Unit.Test.Tests
 
             listOPlanes = new List<IPlane>();
             listOPlanes.Add(testPlane);
-            
+
+            fakeCheckPlanes.RaisedEnterEvent += (o, args) =>
+            {
+                receivedData = args.Message;
+                ++nEventsReceived;
+            };
+
+            fakeAirspace.RaisedLeaveEvent += (o, args) =>
+            {
+                receivedData2 = args.Message;
+                ++nEventsReceived;
+            };
 
         }
 
@@ -110,7 +132,24 @@ namespace AirTrafficMonitor.Unit.Test.Tests
 
         }
 
-        
+        [Test]
+        public void TestHandleEnterEvent()
+        {
+            var args = new EnterEventArgs(testPlane, "20181006123456789");
+            fakeCheckPlanes.RaisedEnterEvent += Raise.EventWith(args);
+            Assert.That(nEventsReceived, Is.EqualTo(1));
+            Assert.AreEqual(receivedData.plane1, args.Message.plane1);
+        }
+
+        [Test]
+        public void TestHandleLeaveEvent()
+        {
+            var args = new LeaveEventArgs(testPlane, "20181006123456789");
+            fakeAirspace.RaisedLeaveEvent += Raise.EventWith(args);
+            Assert.That(nEventsReceived, Is.EqualTo(1));
+            Assert.AreEqual(receivedData2.plane1, args.Message.plane1);
+        }
+
 
 
     }

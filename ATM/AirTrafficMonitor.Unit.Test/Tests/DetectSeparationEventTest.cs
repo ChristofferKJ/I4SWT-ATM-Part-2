@@ -107,11 +107,9 @@ namespace AirTrafficMonitor.Unit.Test.Tests
             Assert.That(nEventsReceived, Is.Not.EqualTo(1) );
         }
 
-   
 
 
-
-
-
+    
+        
     }
 }
